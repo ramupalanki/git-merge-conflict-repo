@@ -1,0 +1,62 @@
+PS C:\git-merge-conflict-demo> git show feature/message-a -- main.py
+commit 3cba32033cc85a9ec1a1eb52cd519af09a3aa0aa (feature/message-a)
+Author: Ramu Palaki <ramu.palanki@gmail.com>
+Date:   Thu Oct 8 11:39:50 2026 +0530
+
+    branch a changes
+
+diff --git a/main.py b/main.py
+index 6700f08..c393ca1 100644
+--- a/main.py
++++ b/main.py
+@@ -1 +1 @@
+-print("Hello from main")
+\ No newline at end of file
++print("Hello from Branch A")
+\ No newline at end of file
+
+
+
+PS C:\git-merge-conflict-demo> git show feature/message-b -- main.py
+commit d379f863ad345cf71fd7659460f65663ce247529 (HEAD -> feature/message-b)
+Author: Ramu Palaki <ramu.palanki@gmail.com>
+Date:   Thu Oct 8 11:40:35 2026 +0530
+
+    branch b changes
+
+diff --git a/main.py b/main.py
+index 6700f08..fa75da6 100644
+--- a/main.py
++++ b/main.py
+@@ -1 +1 @@
+-print("Hello from main")
+\ No newline at end of file
++print("Hello from Branch B")
+\ No newline at end of file
+
+
+
+PS C:\git-merge-conflict-demo> git log --oneline --graph --decorate --all
+* d379f86 (HEAD -> feature/message-b) branch b changes
+| * 3cba320 (feature/message-a) branch a changes
+|/  
+* d280c19 (main) Initial commit
+
+
+
+PS C:\git-merge-conflict-demo> git status
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   main.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+        git-evidence.txt
+
+no changes added to commit (use "git add" and/or "git commit -a"
